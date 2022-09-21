@@ -9,10 +9,20 @@ const Search = ({ setBooks }) => {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState([]);
 
+
   const updateQuery = (query) => {
     setQuery(query.trim());
     const searchBooks = async () => {
       const res = await BooksAPI.search(query.trim())
+      const booksInShelf = await BooksAPI.getAll()
+
+      for (let i = 0; i < booksInShelf.length; i++) {
+        for (let j = 0; j < res.length; j++) {
+          if (booksInShelf[i].id === res[j].id) {
+            res[j] = booksInShelf[i];
+          }
+        }
+      }
       setSearch(res && res.items === undefined ? res : [])
 
     }
@@ -20,6 +30,7 @@ const Search = ({ setBooks }) => {
   };
 
   return (
+
     <div className="search-books">
       <div className="search-books-bar">
         <Link to={"/"} className="close-search">Close</Link>
@@ -36,7 +47,6 @@ const Search = ({ setBooks }) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {console.log(search)}
           {search.map((book) => (
             <Book book={book} setBooks={setBooks} key={book.id} />
           ))}

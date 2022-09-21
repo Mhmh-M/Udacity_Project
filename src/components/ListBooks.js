@@ -29,9 +29,9 @@ const ListBooks = () => {
       <div className="list-books-content">
         <div>
 
-          <Currently_Reading books={books} setBooks={setBooks} />
-          <Want_To_Read books={books} setBooks={setBooks} />
-          <Read books={books} setBooks={setBooks} />
+          <Currently_Reading books={books} setBooks={setBooks} key={1} />
+          <Want_To_Read books={books} setBooks={setBooks} key={2} />
+          <Read books={books} setBooks={setBooks} key={3} />
         </div>
       </div>
       <div className="open-search">
