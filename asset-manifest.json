@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Udacity_Project/static/css/main.d7abfbe8.css",
+    "main.js": "/Udacity_Project/static/js/main.2fe4ae0b.js",
+    "index.html": "/Udacity_Project/index.html",
+    "static/media/arrow-back.svg": "/Udacity_Project/static/media/arrow-back.cd079cab42defead9875.svg",
+    "static/media/add.svg": "/Udacity_Project/static/media/add.1b5d9b6afb5557f7992c.svg",
+    "static/media/arrow-drop-down.svg": "/Udacity_Project/static/media/arrow-drop-down.4378492a3a09dbfc31ff.svg",
+    "main.d7abfbe8.css.map": "/Udacity_Project/static/css/main.d7abfbe8.css.map",
+    "main.2fe4ae0b.js.map": "/Udacity_Project/static/js/main.2fe4ae0b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7abfbe8.css",
+    "static/js/main.2fe4ae0b.js"
+  ]
+}
