@@ -4,7 +4,6 @@ const Book = ({ book, setBooks }) => {
   return (
 
     <li key={book.id + " " + book.shelf}>
-      {console.log(book.id + " " + book.shelf)}
       <div className="book">
         <div className="book-top">
           <div
