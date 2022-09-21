@@ -1,8 +1,10 @@
 
 import * as BooksAPI from '../BooksAPI'
 const Book = ({ book, setBooks }) => {
+  const shelfNames = { "Currently Reading": "currentlyReading", "Want to Read": "wantToRead", "Read": "read", "None": "none" }
 
   return (
+
     <li key={book.pageCount}>
       <div className="book">
         <div className="book-top">
@@ -29,15 +31,20 @@ const Book = ({ book, setBooks }) => {
               <option value="none" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option >
+
+              {Object.values(shelfNames).map((shelf, index) => {
+                return shelf !== book.shelf && book.hasOwnProperty('shelf') ? (
+                  <option value={`${shelf}`}>{Object.keys(shelfNames)[index]}</option>
+                ) : (
+                  <option value={`${book.shelf}`} selected>{Object.keys(shelfNames)[index]}</option>
+                );
+              })}
+
             </select>
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        {book.authors.map((author) => (
+        {book.authors !== undefined && book.authors.map((author) => (
           <div className="book-authors">{author}</div>
         ))}
       </div>
@@ -46,3 +53,4 @@ const Book = ({ book, setBooks }) => {
 }
 
 export default Book
+
