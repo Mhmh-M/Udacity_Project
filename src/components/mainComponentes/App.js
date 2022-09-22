@@ -1,9 +1,9 @@
-import "../css/App.css";
+import "../../css/App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Search from './Search';
 import ListBooks from './ListBooks';
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '../../BooksAPI'
 
 const App = () => {
 

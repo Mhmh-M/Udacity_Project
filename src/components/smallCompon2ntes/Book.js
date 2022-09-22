@@ -1,4 +1,4 @@
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '../../BooksAPI'
 const Book = ({ book, setBooks }) => {
   return (
 
@@ -37,8 +37,8 @@ const Book = ({ book, setBooks }) => {
           </div>
         </div>
         {book.title !== undefined && <div className="book-title">{book.title}</div>}
-        {book.authors !== undefined && book.authors.map((author) => (
-          <div className="book-authors">{author}</div>
+        {book.authors !== undefined && book.authors.map((author, index) => (
+          <div key={book.authors[index]} className="book-authors">{author}</div>
         ))}
       </div>
     </li >

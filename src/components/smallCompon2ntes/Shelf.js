@@ -1,5 +1,6 @@
 import Book from "./Book"
-const Shelf = ({ books, setBooks, title }) => {
+const Shelf = ({ books, setBooks, title, value }) => {
+  books = books.filter((e) => { return e.shelf === value })
 
   return (
     <div className="bookshelf" >

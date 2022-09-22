@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-pascal-case */
-import Currently_Reading from './Currently_Reading'
-import Want_To_Read from './Want_To_Read'
-import Read from './Read'
 import { Link } from "react-router-dom";
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '../../BooksAPI'
 import { useState, useEffect } from "react";
-
+import Shelf from "../smallCompon2ntes/Shelf"
 
 const ListBooks = () => {
 
 
 
+  const shelfsValues = {
+    "Currently Reading": "currentlyReading", "Want to Read": "wantToRead", "Read": "read"
+  };
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -28,9 +28,10 @@ const ListBooks = () => {
       </div>
       <div className="list-books-content">
         <div>
-          <Currently_Reading books={books} setBooks={setBooks} key={1} />
-          <Want_To_Read books={books} setBooks={setBooks} key={2} />
-          <Read books={books} setBooks={setBooks} key={3} />
+          {Object.keys(shelfsValues).map((ele, index) => (
+            < Shelf books={books} setBooks={setBooks} title={ele} value={Object.values(shelfsValues)[index]} key={index} />
+          ))}
+
         </div>
       </div>
       <div className="open-search">
