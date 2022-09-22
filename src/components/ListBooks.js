@@ -28,7 +28,6 @@ const ListBooks = () => {
       </div>
       <div className="list-books-content">
         <div>
-
           <Currently_Reading books={books} setBooks={setBooks} key={1} />
           <Want_To_Read books={books} setBooks={setBooks} key={2} />
           <Read books={books} setBooks={setBooks} key={3} />

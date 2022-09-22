@@ -12,23 +12,27 @@ const Search = ({ setBooks }) => {
 
   const updateQuery = (query) => {
     setQuery(query.trim());
-    const searchBooks = async () => {
-      const res = await BooksAPI.search(query.trim())
-      const booksInShelf = await BooksAPI.getAll()
-
-      for (let i = 0; i < booksInShelf.length; i++) {
-        for (let j = 0; j < res.length; j++) {
-          if (booksInShelf[i].id === res[j].id) {
-            res[j] = booksInShelf[i];
-          }
+    if (query !== '' && isNaN(parseInt(query))) {
+      const searchBooks = async () => {
+        let res = await BooksAPI.search(query)
+        const booksInShelf = await BooksAPI.getAll()
+        try {
+          res = res.map((ele) => {
+            const shelfs_id = booksInShelf.map(function (e) { return e.id; });
+            return shelfs_id.indexOf(ele.id) >= 0 ? booksInShelf[shelfs_id.indexOf(ele.id)] : ele
+          })
+        } catch (e) {
+          console.log("Not Found")
         }
+
+        setSearch(res && res.items === undefined ? res : [])
+
       }
-      setSearch(res && res.items === undefined ? res : [])
-
+      searchBooks();
+    } else {
+      setSearch([])
     }
-    searchBooks();
   };
-
   return (
 
     <div className="search-books">

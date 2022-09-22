@@ -1,9 +1,8 @@
-
 import * as BooksAPI from '../BooksAPI'
 const Book = ({ book, setBooks }) => {
   return (
 
-    <li key={book.id + " " + book.shelf}>
+    <li>
       <div className="book">
         <div className="book-top">
           <div
