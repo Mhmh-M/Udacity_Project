@@ -11,7 +11,7 @@ const Search = ({ setBooks }) => {
 
 
   const updateQuery = (query) => {
-    setQuery(query.trim());
+    setQuery(query);
     if (query !== '' && isNaN(parseInt(query))) {
       const searchBooks = async () => {
         let res = await BooksAPI.search(query)
